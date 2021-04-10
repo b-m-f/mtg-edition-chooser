@@ -1,0 +1,14 @@
+{
+  "name": "mtg-edition-chooser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "start": "node script.js"
+  },
+  "author": "b-m-f (max@ehlers.berlin)",
+  "license": "BSD",
+  "dependencies": {
+    "playwright": "1.10.0"
+  }
+}
