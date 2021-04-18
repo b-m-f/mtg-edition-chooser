@@ -17,7 +17,11 @@ async function getEdition(page, card) {
   await waitForOverviewPage;
 
   // wait for user to choose edition
+  try {
   await page.waitForNavigation();
+  } catch (error) {
+    console.log("Not navigated. Only one edition available")
+  }
 
   const edition = await page.textContent(".prints-current-set-name");
   return edition.replace(/\(.*\)/, "").trim();
