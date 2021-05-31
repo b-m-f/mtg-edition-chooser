@@ -13,14 +13,14 @@ async function getEdition(page, card) {
   );
 
   const waitForOverviewPage = page.waitForNavigation();
-  await page.click("text=View all prints →");
-  await waitForOverviewPage;
 
   // wait for user to choose edition
   try {
-  await page.waitForNavigation();
+    await page.click("text=View all prints →");
+    await waitForOverviewPage;
+    await page.waitForNavigation();
   } catch (error) {
-    console.log("Not navigated. Only one edition available")
+    console.log("Not navigated. Only one edition available");
   }
 
   const edition = await page.textContent(".prints-current-set-name");
