@@ -41,9 +41,15 @@ async function getEdition(page, card) {
         const regexToRemoveNumber = /(\d)\s(.*)/g;
 
         const match = regexToRemoveNumber.exec(line.trim());
-        // match[1] is the first capture group
-        return { amount: match[1], card: match[2] };
-      });
+	if (match && match[1]){
+		// match[1] is the first capture group
+		return { amount: match[1], card: match[2] };
+	}
+	      else{
+	      return {}
+      }
+      })
+      .filter(entry => entry.amount);
 
     for (let line of lines) {
       // for each entry go to scryfall and search exact match
